@@ -4,6 +4,19 @@ var buttonColours = ["red", "blue", "green", "yellow"];
 //5. At the top of the game.js file, create a new empty array called gamePattern.
 var gamePattern = [];
 
+//add event listener to every button 
+
+const elements = document.getElementsByClassName('simmon-buttons')
+
+for (let i = 0; i < elements.length; i++) {
+    elements[i].addEventListener('click', (event) => {
+        // added typescript validation for div element clickted in typscript 
+        const colorPressed = (<HTMLElement>event.target).id
+
+        console.dir(colorPressed);
+    })
+};
+
 //1. Inside game.js create a new function called nextSequence()
 function nextSequence() {
 
