@@ -1,1 +1,1 @@
-# jquery-simion-saysgame
+# Typescript-Js-saysgame
