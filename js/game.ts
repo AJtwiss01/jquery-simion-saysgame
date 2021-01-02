@@ -11,9 +11,12 @@ const elements = document.getElementsByClassName('simmon-buttons')
 for (let i = 0; i < elements.length; i++) {
     elements[i].addEventListener('click', (event) => {
         // added typescript validation for div element clickted in typscript 
+        const elem = (<HTMLElement>event.target)
         const colorPressed = (<HTMLElement>event.target).id
 
-        console.dir(colorPressed);
+        console.dir(`color pressed ${colorPressed} and element clicked ${JSON.stringify(elem)}`);
+
+        elem.classList.add('blink_me');
     })
 };
 
@@ -29,9 +32,12 @@ function nextSequence() {
     //6. Add the new randomChosenColour generated in step 4 to the end of the gamePattern.
     gamePattern.push(randomChosenColour);
 
-    return randomChosenColour
-
+    const elem = document.getElementById(randomChosenColour)
+    elem.classList.add('blink_me');
+    const audio = new Audio("sounds/" + randomChosenColour + ".mp3");
+    audio.play();
+    console.log(randomChosenColour)
 }
 
-console.log(nextSequence())
+nextSequence()
 
